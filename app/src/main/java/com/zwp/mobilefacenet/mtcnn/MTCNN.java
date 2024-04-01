@@ -203,9 +203,9 @@ public class MTCNN {
                         if (x2 < x1 || y2 < y1) continue;
                         int areaIoU = (x2 - x1 + 1) * (y2 - y1 + 1);
                         float iou = 0f;
-                        if (method.equals("Union"))
+                        if ("Union".equals(method))
                             iou = 1.0f * areaIoU / (box.area() + box2.area() - areaIoU);
-                        else if (method.equals("Min"))
+                        else if ("Min".equals(method))
                             iou = 1.0f * areaIoU / (Math.min(box.area(), box2.area()));
                         if (iou >= threshold) { // 删除prob小的那个框
                             if (box.score > box2.score)
